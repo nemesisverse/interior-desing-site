@@ -2,74 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* HERO background - paths assume styles.css is in src/ and images in src/desktop and src/mobile */
-#hero {
-  background-image: url('./desktop/image-hero.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+#Navbar{
+  background-image:url('./images/image-hero.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
 }
-
-/* mobile hero swap - correct media query syntax */
-@media (max-width: 576px) {
-  #hero {
-    background-image: url('./mobile/image-hero.jpg');
-    background-position: center;
+@media(max-width : 576px){
+  #Navbar{
+    background-image:url('./images/image-hero.jpg');
+    background-position:center;
   }
-}
-
-/* hamburger menu base */
-.hamburger {
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-  transition: all 0.25s;
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: white; /* lines use currentColor */
-}
-
-/* lines */
-.hamburger-top,
-.hamburger-middle,
-.hamburger-bottom {
-  position: absolute;
-  width: 24px;
-  height: 2px;
-  left: 0;
-  background: currentColor;
-  transition: transform 0.25s ease, opacity 0.25s ease;
-}
-
-.hamburger-middle {
-  transform: translateY(7px);
-}
-
-.hamburger-bottom {
-  transform: translateY(14px);
-}
-
-/* open state: animate into X */
-.hamburger.open .hamburger-top {
-  transform: rotate(45deg) translateY(6px) translateX(6px);
-}
-.hamburger.open .hamburger-middle {
-  opacity: 0;
-}
-.hamburger.open .hamburger-bottom {
-  transform: rotate(-45deg) translateY(-6px) translateX(6px);
-}
-
-/* mobile menu transition helpers */
-#menu {
-  transform: translateX(100%); /* default hidden */
-  transition: transform 300ms ease-in-out;
-}
-#menu.translate-x-0 {
-  transform: translateX(0);
-}
-#menu.translate-x-full {
-  transform: translateX(100%);
 }

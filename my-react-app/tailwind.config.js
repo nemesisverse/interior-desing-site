@@ -5,18 +5,17 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    screens:{
-        sm: '480px',
-        md:'768px',
-        lg:'976px',
-        xl:'1440px'
-      },
+    screens: {
+      sm: '480px',
+      md: '768px',
+      lg: '976px',
+      xl: '1440px',
+    },
     extend: {
       fontFamily:{
-        sans:['Josefin Sans', 'sans-serif'],
-        alata:['Alata']
-
+        ubuntu: ['Ubuntu']
       }
+      // You can extend colors, fonts, etc. here later
     },
   },
   plugins: [],
