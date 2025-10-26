@@ -3,10 +3,11 @@
 @tailwind utilities;
 
 #Navbar{
-  background-image:url('./images/image-hero.jpg');
+  background-color:black;
   background-repeat:no-repeat;
   background-size:cover;
 }
+//screen condition
 @media(max-width : 576px){
   #Navbar{
     background-image:url('./images/image-hero.jpg');
