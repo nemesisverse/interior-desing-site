@@ -3,14 +3,22 @@
 @tailwind utilities;
 
 #Navbar{
-  background-color:black;
+  background-color:orange;
   background-repeat:no-repeat;
   background-size:cover;
 }
-//screen condition
-@media(max-width : 576px){
-  #Navbar{
-    background-image:url('./images/image-hero.jpg');
-    background-position:center;
+
+@media (max-width: 576px) {
+  #Navbar {
+    background-color: red;
+    background-position: center;
   }
+}
+
+/* ///////////////////////////////////// */
+
+#hero{
+  background-color:grey;
+  background-repeat:no-repeat;
+  background-size:cover;
 }
