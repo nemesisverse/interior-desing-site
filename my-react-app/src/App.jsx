@@ -5,11 +5,9 @@ export default function App() {
 
   return (
     <div>
-      <Hero/>
       <Navbar/>
+      <Hero/> 
       
-      
-
     </div>   
   );
 }

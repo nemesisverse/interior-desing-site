@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 #Navbar{
-  background-color:orange;
+  
   background-repeat:no-repeat;
   background-size:cover;
 }
 
 @media (max-width: 576px) {
   #Navbar {
-    background-color: red;
+    
     background-position: center;
   }
 }
@@ -18,7 +18,8 @@
 /* ///////////////////////////////////// */
 
 #hero{
-  background-color:grey;
+  background-image: url('./animation_images/1.jpeg');
   background-repeat:no-repeat;
+  {/* i used backgorund-size:cover; in css to cover whole container */}
   background-size:cover;
 }
