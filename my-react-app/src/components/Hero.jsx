@@ -26,7 +26,7 @@ export default function Hero() {
                 {/* h-screen:-it makes that element as tall as the entire visible browser window. */}
                 {/* i used backgorund-size:cover; in css to cover whole container */}
                 <div  className="container max-w-6xl mx-auto  h-screen   " >  
-                  {/* Background Images Layer */}
+                  {/* Background Images Layer  And logic for transition*/}
                   <div  id="transition" className="absolute inset-0">
                     {images.map((img, index) => (
                       <div
