@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#hero{
+  /* background-image: url('./animation_images/1.jpeg'); */
+  background-position: center;
+  background-repeat:no-repeat;
+  {/* i used backgorund-size:cover; in css to cover whole container */}
+  background-size:cover;
+}
+
+#transition{
+   
+  margin: 0;
+  
+  overflow-x: hidden; /* prevents horizontal scrollbar caused by transforms/images */
+  overflow-y:hidden;
+
+}

@@ -4,7 +4,7 @@ export default function Navbar()
     return(
         <div>
             <section id = "Navbar" >
-                <div  className=" container max-w-6xl mx-auto px-5 py-10 z-50 fixed">
+                <div  className=" container max-w-6xl mx-auto px-5 py-10 z-50 fixed bg-transparent">
                                     {/* item-center will align the content at the middle of container */}
                     <nav className="flex item-center justify-between font-bold text-white">
                     <img src={logo} alt="Logo" />
