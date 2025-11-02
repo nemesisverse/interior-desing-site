@@ -4,6 +4,7 @@
 
 #hero{
   /* background-image: url('./animation_images/1.jpeg'); */
+  background-color: black;
   background-position: center;
   background-repeat:no-repeat;
   {/* i used backgorund-size:cover; in css to cover whole container */}
