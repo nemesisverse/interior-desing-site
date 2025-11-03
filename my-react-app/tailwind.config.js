@@ -13,7 +13,10 @@ export default {
     },
     extend: {
       fontFamily:{
-        ubuntu: ['Ubuntu']
+
+        ubuntu: ['Ubuntu', 'sans-serif'],
+                                // little tail on feet of charachter
+        playfair: ['Playfair Display', 'serif'],
       }
       // You can extend colors, fonts, etc. here later
     },

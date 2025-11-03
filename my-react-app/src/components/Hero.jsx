@@ -49,7 +49,7 @@ export default function Hero() {
 
                   
                   {/* Content Layer */}
-                  <div className="relative z-10 container max-w-6xl mx-auto h-full flex items-center justify-center">
+                  <div className="relative z-20 container max-w-6xl mx-auto h-full flex items-center justify-center">
                     <h1 className="text-5xl font-bold text-white drop-shadow-lg">
                       Welcome to My Design Studio
                     </h1>
