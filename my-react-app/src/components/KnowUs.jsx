@@ -17,19 +17,25 @@ export default function KnowUs() {
     const html = document.documentElement;
     const body = document.body;
     if (getComputedStyle(html).overflow === "hidden" || getComputedStyle(body).overflow === "hidden") {
-      console.warn("⚠️ html/body overflow is hidden — that will prevent scrolling.");
+      console.warn(" html/body overflow is hidden — that will prevent scrolling.");
     }
 
     const heroHeightStart = window.innerHeight;
     let currentHeroHeight = heroHeightStart;
-    const safeMultiplier = 2.1;
+    const safeMultiplier = 2.1; // 2.1 if lerpFactor is require to put weightage in scroll multiply with  currentY.current += (targetY.current - currentY.current) 
     setSpacerHeight(heroHeightStart * safeMultiplier);
 
     currentY.current = currentHeroHeight; // start below viewport
-    targetY.current = currentHeroHeight;
+    targetY.current =  currentHeroHeight;
 
-    const lerpFactor = 0.12;
+    const lerpFactor = 0.12; // 0.12 official 
     const speedFactor = 0.6;
+
+//const desiredScrollToTop = 1200; // how many px of scroll should bring overlay to top
+//const speedFactor = currentHeroHeight / desiredScrollToTop; 
+// now targetY reaches 0 when scrollY >= desiredScrollToTop
+
+    
 
     let raf = null;
 
