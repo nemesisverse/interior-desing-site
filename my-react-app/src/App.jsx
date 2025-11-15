@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import KnowUs from "./components/KnowUs";
 
+
 import Project1 from "./components/Project1";
 export default function App() {
 
@@ -14,7 +15,7 @@ export default function App() {
       </div>
       
       <KnowUs/>
-      <Project1 />
+      
       
     </div>   
   );
