@@ -91,7 +91,7 @@ export default function KnowUs() {
     transform: "translateY(100vh)", // initial
     willChange: "transform",
     // when allowOverlap is true, make the overlay visually underlayed:
-    zIndex: allowOverlap ? 0 : 30,
+   zIndex: allowOverlap ? 0 : 30, // i dont know , if i remove it nothing changes
     pointerEvents: allowOverlap ? "none" : "auto", // allow clicks to pass to beneath content
   };
 
