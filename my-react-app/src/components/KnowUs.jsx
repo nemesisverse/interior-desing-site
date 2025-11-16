@@ -56,7 +56,7 @@ export default function KnowUs() {
       targetY.current = Math.max(currentHeroHeight - scrollY * speedFactor, 0);
 
       // If the overlay would be fully at top (targetY === 0), we allow overlap.
-      // Equivalent condition: scrollY * speedFactor >= currentHeroHeight
+      // Equivalent condition: scrollY * speedFactor >= currentHeroHeight ,,,,,,here its saying has knowUs touched the top , y = 0
       const shouldAllowOverlap = scrollY * speedFactor >= currentHeroHeight;
       // Only update state if changed (avoid re-renders)
       if (shouldAllowOverlap !== allowOverlap) {
