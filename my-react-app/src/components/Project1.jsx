@@ -119,12 +119,12 @@ export default function ScrollSection({
             style={{ willChange: 'transform' }}
         >
             {/* Image 1 */}
-            <div className={`w-[500px] h-[700px] ${img1Color} shadow-2xl rounded-xl flex items-center justify-center`}>
+            <div className={`w-[900px] h-[700px] ${img1Color} shadow-2xl rounded-xl flex items-center justify-center`}>
                 <span className="text-white text-4xl font-bold">1</span>
             </div>
 
             {/* Image 2 */}
-            <div className={`w-[500px] h-[700px] ${img2Color} shadow-2xl rounded-xl flex items-center justify-center`}>
+            <div className={`w-[900px] h-[700px] ${img2Color} shadow-2xl rounded-xl flex items-center justify-center`}>
                 <span className="text-white text-4xl font-bold">2</span>
             </div>
         </div>
