@@ -1,4 +1,4 @@
-import Project1 from "./Project1";
+
 import React, { useEffect, useRef, useState } from "react";
 
 export default function KnowUs() {
@@ -91,8 +91,10 @@ export default function KnowUs() {
     transform: "translateY(100vh)", // initial
     willChange: "transform",
     // when allowOverlap is true, make the overlay visually underlayed:
-   zIndex: allowOverlap ? 0 : 30, // i dont know , if i remove it nothing changes
-    pointerEvents: allowOverlap ? "none" : "auto", // allow clicks to pass to beneath content
+
+    //active them when something unnecessaru happen
+   //zIndex: allowOverlap ? 0 : 30, // i dont know , if i remove it nothing changes
+   // pointerEvents: allowOverlap ? "none" : "auto", // allow clicks to pass to beneath content
   };
 
   return (
@@ -118,7 +120,8 @@ export default function KnowUs() {
       {/* Example section BELOW that should scroll *over* the overlay when allowOverlap === true.
           Important: give this section a higher stacking context (z-index) so it can appear above.
           Use relative + z-* or a utility class that gives higher z-index (e.g., z-40). */}
-      <Project1 />
+      
+      
     </>
   );
 }
