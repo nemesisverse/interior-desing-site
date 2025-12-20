@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-
+import img1 from "../images/Project1/pro11.png";
 export default function ScrollSection({ 
   id = "section", 
   bgColor = "bg-green-100", 
@@ -28,7 +28,7 @@ export default function ScrollSection({
     // --- 2. CALCULATE SPACER ---
     // We only need spacer for the "Dead Zone" where images move.
     // Multiplier 4.5 gives enough scroll room for images to exit top.
-    const scrollDistance = currentHeroHeight * 3.6; 
+    const scrollDistance = currentHeroHeight * 3.5; 
     
     // Total height = Viewport (to fill screen) + Scroll Distance
     setSpacerHeight(currentHeroHeight + scrollDistance);
@@ -115,16 +115,18 @@ export default function ScrollSection({
         {/* --- IMAGE CONTAINER --- */}
         <div 
             ref={imagesContainerRef}
-            className="absolute top-0 left-0 w-full flex flex-col items-center gap-[500px] pointer-events-none z-10"
+            className=" absolute top-0 left-0 w-full flex flex-col items-center gap-[400px] flex-auto pointer-events-none z-10 "
             style={{ willChange: 'transform' }}
         >
             {/* Image 1 */}
-            <div className={`w-[900px] h-[600px] ${img1Color} shadow-2xl rounded-xl flex items-center justify-center`}>
+            <div className={`  ${img1Color} shadow-2xl rounded-xl flex items-center justify-center  w-[82%]  h-[87vh] 
+              bg-cover bg-center bg-no-repeat`}  style={{ backgroundImage: `url('${img1}')` }}>
                 <span className="text-white text-4xl font-bold">1</span>
             </div>
 
             {/* Image 2 */}
-            <div className={`w-[900px] h-[600px] ${img2Color} shadow-2xl rounded-xl flex items-center justify-center`}>
+            <div className={`${img2Color} shadow-2xl rounded-xl flex items-center justify-center w-[82%]  h-[87vh] 
+              bg-cover bg-center bg-no-repeat`} style={{ backgroundImage: `url('${img1}')` }}>
                 <span className="text-white text-4xl font-bold">2</span>
             </div>
         </div>
