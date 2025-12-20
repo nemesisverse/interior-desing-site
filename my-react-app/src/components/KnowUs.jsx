@@ -6,36 +6,38 @@ export default function KnowUs() {
   const wrapperRef = useRef(null);
   const [spacerHeight, setSpacerHeight] = useState(0);
 
-  // animation refs
+ //useRef value initialization
   const currentY = useRef(0);
   const targetY = useRef(0);
 
   // when true we let the content beneath overlap (appear on top)
-  const [allowOverlap, setAllowOverlap] = useState(false);
+  //const [allowOverlap, setAllowOverlap] = useState(false);
 
   useEffect(() => {
+    // Warn if html/body overflow is hidden (will break scrolling)
     const html = document.documentElement;
     const body = document.body;
-    if (getComputedStyle(html).overflow === "hidden" || getComputedStyle(body).overflow === "hidden") {
-      console.warn(" html/body overflow is hidden — that will prevent scrolling.");
+    if(getComputedStyle(html).overflow === "hidden" || getComputedStyle(body).overflow === "hidden") {
+      console.warn(
+        "KnowUs component: Detected overflow:hidden on html or body. This will break scrolling behavior."
+      );
     }
 
+
     const heroHeightStart = window.innerHeight;
-    let currentHeroHeight = heroHeightStart;
+    let currentHeroHeight = heroHeightStart; //lets say 800 , it will remain 800 throughout the scroll
     const safeMultiplier = 2.1; // 2.1 if lerpFactor is require to put weightage in scroll multiply with  currentY.current += (targetY.current - currentY.current) 
     setSpacerHeight(heroHeightStart * safeMultiplier);
 
     currentY.current = currentHeroHeight; // start below viewport
     targetY.current =  currentHeroHeight;
 
-    const lerpFactor = 0.12; // 0.12 official 
+    const lerpFactor = 0.12; // 0.12 official  it slows down the movement , smaller = slower
     const speedFactor = 0.6;
 
-//const desiredScrollToTop = 1200; // how many px of scroll should bring overlay to top
-//const speedFactor = currentHeroHeight / desiredScrollToTop; 
-// now targetY reaches 0 when scrollY >= desiredScrollToTop
-
-    
+    //const desiredScrollToTop = 1200; // how many px of scroll should bring overlay to top
+    //const speedFactor = currentHeroHeight / desiredScrollToTop;   
+    // now targetY reaches 0 when scrollY >= desiredScrollToTop
 
     let raf = null;
 
@@ -53,16 +55,18 @@ export default function KnowUs() {
     // scroll handler updates targetY and toggles allowOverlap when overlay reached the top
     const onScroll = () => {
       const scrollY = window.scrollY || window.pageYOffset;
+      // I will remove the zero after project 1
       targetY.current = Math.max(currentHeroHeight - scrollY * speedFactor, 0);
 
       // If the overlay would be fully at top (targetY === 0), we allow overlap.
       // Equivalent condition: scrollY * speedFactor >= currentHeroHeight ,,,,,,here its saying has knowUs touched the top , y = 0
-      const shouldAllowOverlap = scrollY * speedFactor >= currentHeroHeight;
+
+      //const shouldAllowOverlap = scrollY * speedFactor >= currentHeroHeight;
       // Only update state if changed (avoid re-renders)
-      if (shouldAllowOverlap !== allowOverlap) {
-        // use setTimeout zero to avoid React state during scroll event re-entrancy — optional but safe
-        setAllowOverlap(shouldAllowOverlap);
-      }
+      //if (shouldAllowOverlap !== allowOverlap) {
+      //  // use setTimeout zero to avoid React state during scroll event re-entrancy — optional but safe
+      //  setAllowOverlap(shouldAllowOverlap);
+      //}
     };
 
     const onResize = () => {
@@ -120,8 +124,6 @@ export default function KnowUs() {
       {/* Example section BELOW that should scroll *over* the overlay when allowOverlap === true.
           Important: give this section a higher stacking context (z-index) so it can appear above.
           Use relative + z-* or a utility class that gives higher z-index (e.g., z-40). */}
-      
-      
     </>
   );
 }

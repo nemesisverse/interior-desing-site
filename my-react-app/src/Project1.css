@@ -4,10 +4,10 @@
 
 #project1{
       /* background-image: url('./animation_images/1.jpeg'); */
-   //background-color: green;
+   background-color: green;
 
-  background-position: center;
+  background-position:center;
   background-repeat:no-repeat;
-  {/* i used backgorund-size:cover; in css to cover whole container */}
+  /* i used backgorund-size:cover; in css to cover whole container */
   background-size:cover;
 }

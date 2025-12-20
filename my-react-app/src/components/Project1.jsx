@@ -28,7 +28,7 @@ export default function ScrollSection({
     // --- 2. CALCULATE SPACER ---
     // We only need spacer for the "Dead Zone" where images move.
     // Multiplier 4.5 gives enough scroll room for images to exit top.
-    const scrollDistance = currentHeroHeight * 4.5; 
+    const scrollDistance = currentHeroHeight * 3.6; 
     
     // Total height = Viewport (to fill screen) + Scroll Distance
     setSpacerHeight(currentHeroHeight + scrollDistance);
