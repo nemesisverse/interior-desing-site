@@ -25,9 +25,9 @@ export default function Hero() {
                 {/* max-w-6xl:widht according to screen /mx-auto:allign the whole container to center */}
                 {/* h-screen:-it makes that element as tall as the entire visible browser window. */}
                 {/* i used backgorund-size:cover; in css to cover whole container */}
-                <div  className="container max-w-6xl mx-auto  h-screen   " >  
+                <div  className="container max-w-6xl mx-auto  h-screen    " >  
                   {/* Background Images Layer  And logic for transition*/}
-                  <div  id="transition" className="absolute inset-0">
+                  <div  id="transition" className="absolute inset-0 ">
                     {images.map((img, index) => (
                       <div
                         key={index}
@@ -41,7 +41,7 @@ export default function Hero() {
                               ? "opacity-100 -translate-x-3 scale-105" // move left + zoom
                               : "opacity-100 translate-x-3 scale-105"  // move right + zoom
                             : "opacity-0 translate-x-0 translate-y-0 scale-100"
-                        }`}
+                        } `}
                         style={{ backgroundImage: `url(${img})` }}
                       />
                     ))}
