@@ -21,7 +21,7 @@ export default function Navbar() {
 
     if (isOpen) return;
 
-    const delta = 260;
+    const delta = 140;
 
     if (currentScrollY < innerHeight) {
       setShow(true);
