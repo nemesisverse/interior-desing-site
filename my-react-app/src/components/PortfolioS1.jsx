@@ -7,10 +7,10 @@ const imgHospitality = "https://images.unsplash.com/photo-1566073771259-6a850609
 const imgOffices = "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=500";
 
 const projects = [
-  { title: "Farmhouse", img: imgFarmhouse, link: "#farmhouse", color: "bg-stone-100" },
-  { title: "Apartments", img: imgApartments, link: "#apartments", color: "bg-slate-100" },
+  { title: "Residential", img: imgFarmhouse, link: "#farmhouse", color: "bg-stone-100" },
+  { title: "Commercial", img: imgApartments, link: "#apartments", color: "bg-slate-100" },
   { title: "Hospitality", img: imgHospitality, link: "#hospitality", color: "bg-orange-50" },
-  { title: "Offices", img: imgOffices, link: "#offices", color: "bg-zinc-100" },
+  { title: "Space Planning", img: imgOffices, link: "#offices", color: "bg-zinc-100" },
 ];
 
 export default function PortfolioCardStack() {
@@ -102,7 +102,7 @@ export default function PortfolioCardStack() {
         <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden">
           
           <h2 className="absolute top-8 text-sm md:text-base font-bold uppercase tracking-widest text-gray-400 z-50">
-            Selected Projects
+            Projects
           </h2>
 
           {/* CONTAINER */}
@@ -142,7 +142,7 @@ export default function PortfolioCardStack() {
                           {index + 1}
                         </span>
                         <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">
-                          Project File
+                          
                         </span>
                       </div>
                       

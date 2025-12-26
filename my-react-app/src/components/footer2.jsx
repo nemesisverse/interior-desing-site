@@ -24,24 +24,24 @@ export default function Footer2() {
         {/* --- LEFT SECTION: Contact & Socials --- */}
         <div className="space-y-4">
           <h3 className="text-lg font-bold underline underline-offset-4 decoration-1 mb-6">
-            MONICA KHANNA DESIGNS
+            Elevated Home Interio
           </h3>
           
           <div className="space-y-1 text-gray-200 text-base leading-relaxed">
-            <p>Unit no GL 502, 5th Flr</p>
-            <p>DLF CROSS POINT</p>
-            <p>DLF City Phase IV, Sector 28</p>
-            <p>Gurgaon, Haryana 122002</p>
+            <p>Fusion Ufairia Mall</p>
+            <p>Office No F-139B</p>
+            <p>DSector 16B, Greater Noida</p>
+            <p>Ghaziabad, Uttar Pradesh,201310</p>
             <p>India</p>
           </div>
 
           <p className="mt-4 text-gray-200">+91 9599732700</p>
           
           <a 
-            href="mailto:info@monicakhannadesigns.com" 
+            href="mailto:info@elevatedhomeinterio.com" 
             className="block text-gray-200 hover:text-white underline decoration-1 underline-offset-4"
           >
-            info@monicakhannadesigns.com
+            info@elevatedhomeinterio.com
           </a>
 
           {/* Social Icons */}
@@ -57,7 +57,7 @@ export default function Footer2() {
               </svg>
             </a>
             <a 
-              href="#" 
+              href="https://www.instagram.com/elevatedhomeinterio?igsh=MXFwdWpqZjUxNnFraA%3D%3D&utm_source=qrs" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="hover:opacity-80 transition-opacity"
@@ -67,7 +67,7 @@ export default function Footer2() {
               </svg>
             </a>
             <a 
-              href="https://www.instagram.com/elevatedhomeinterio?igsh=MXFwdWpqZjUxNnFraA%3D%3D&utm_source=qrs" 
+              href="#" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="hover:opacity-80 transition-opacity"
@@ -77,7 +77,7 @@ export default function Footer2() {
               </svg>
             </a>
             <a 
-              href="#" 
+              href="https://www.linkedin.com/company/elevatedhomeinterio/" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="hover:opacity-80 transition-opacity"
@@ -87,7 +87,7 @@ export default function Footer2() {
                </svg>
             </a>
             <a 
-              href="https://www.linkedin.com/company/elevatedhomeinterio/" 
+              href="#" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="hover:opacity-80 transition-opacity"
@@ -115,8 +115,8 @@ export default function Footer2() {
             <p className="text-gray-200 text-base leading-relaxed mb-6">
               <span className="font-bold text-white">VENDOR INQUIRY: </span>
               We are constantly looking for vendors and partners for our projects. We do not accept calls or texts at this time. Please send us your details at{" "}
-              <a href="mailto:info@monicakhannadesigns.com" className="underline hover:text-white">
-                info@monicakhannadesigns.com
+              <a href="mailto:info@elevatedhomeinterio.com" className="underline hover:text-white">
+                info@elevatedhomeinterio.com
               </a>{" "}
               and include ‘VENDOR’ in the subject so we don’t miss it. We will review your product line and get back to you as needed. Please send us only one email. Thank you.
             </p>
