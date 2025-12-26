@@ -14,6 +14,10 @@ import Footer2 from "./components/footer2";
 import Navbar2 from "./components/Navbar2";
 
 import ContactUs from "./components/ContactUs";
+import BlogCover from "./components/BlogCover";
+import Blog from "./components/Blog";
+
+
 
 export default function App() {
   const router = createBrowserRouter([
@@ -41,6 +45,10 @@ export default function App() {
     {
       path: "/contactus",
       element: <><Navbar2/><ContactUs/><Footer2/></>,
+    },
+    {
+      path: "/blog",
+      element: <><Navbar/><BlogCover/><Blog/><Footer2/></>,
     }
 
   ]);
