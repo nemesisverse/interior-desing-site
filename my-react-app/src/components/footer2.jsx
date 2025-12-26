@@ -30,7 +30,7 @@ export default function Footer2() {
           <div className="space-y-1 text-gray-200 text-base leading-relaxed">
             <p>Fusion Ufairia Mall</p>
             <p>Office No F-139B</p>
-            <p>DSector 16B, Greater Noida</p>
+            <p>Sector 16B, Greater Noida</p>
             <p>Ghaziabad, Uttar Pradesh,201310</p>
             <p>India</p>
           </div>

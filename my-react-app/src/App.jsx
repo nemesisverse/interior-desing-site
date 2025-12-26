@@ -11,6 +11,7 @@ import Footer from "./components/footer";
 import Portfolio1 from "./components/Portfolio1";
 import PortfolioS1 from "./components/PortfolioS1";
 import Footer2 from "./components/footer2";
+import Navbar2 from "./components/Navbar2";
 
 import ContactUs from "./components/ContactUs";
 
@@ -39,7 +40,7 @@ export default function App() {
     },
     {
       path: "/contactus",
-      element: <><ContactUs/><Footer2/></>,
+      element: <><Navbar2/><ContactUs/><Footer2/></>,
     }
 
   ]);

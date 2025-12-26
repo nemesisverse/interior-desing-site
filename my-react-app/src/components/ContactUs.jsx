@@ -11,38 +11,83 @@ export default function ContactUs() {
     message: ''
   });
 
+  // --- NEW: Loading State ---
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   // --- Handlers ---
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Logic: If 'Other' is selected, the final interest is the custom input. 
-    // Otherwise, it's the dropdown value.
+    // 1. Start Loading
+    setIsSubmitting(true);
+
+    // Logic: Resolve the final interest value
     const finalInterest = formData.interest === 'other' 
       ? formData.customInterest 
       : formData.interest;
 
+    // Prepare the data object
     const submissionData = {
-      ...formData,
-      interest: finalInterest // Overwrite with the actual logic
+      name: formData.name,
+      email: formData.email,
+      interest: finalInterest,
+      phone: formData.phone,
+      message: formData.message
     };
 
-    console.log("Form Data Submitted:", submissionData);
-    
-    alert(`Message sent! Interest: ${finalInterest}`);
-    
-    // Reset form
-    setFormData({ name: '', email: '', interest: '', customInterest: '', phone: '', message: '' });
+    try {
+      // 2. Send POST request to your backend
+      const response = await fetch('http://127.0.0.1:5001/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submissionData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        // Success Handling
+        console.log("Saved to DB:", result);
+        alert(`Message sent successfully! We'll contact you about: ${finalInterest}`);
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          interest: '',
+          customInterest: '',
+          phone: '',
+          message: ''
+        });
+      } else {
+        // Error Handling
+        alert("Failed to send message. Please try again.");
+      }
+
+    } catch (error) {
+      console.error("Network Error:", error);
+      alert("Error connecting to the server.");
+    } finally {
+      // 3. Stop Loading (runs whether success or fail)
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="min-h-screen bg-[#f9f9f9] font-sans text-gray-900 pb-20">
       
-      <main className="max-w-7xl mx-auto px-6 py-16 lg:px-12">
+      {/* UPDATED PADDING: 
+        Changed 'py-16' to 'pt-32 pb-16'. 
+        'pt-32' adds 128px of space at the top, ensuring the fixed navbar doesn't cover the title.
+      */}
+      <main className="max-w-7xl mx-auto px-6 pt-32 pb-16 lg:px-12">
         
         {/* Page Title */}
         <h1 className="text-4xl font-extrabold mb-16 tracking-tight text-black">Get in touch</h1>
@@ -111,23 +156,21 @@ export default function ContactUs() {
                   </div>
                 </div>
 
-                {/* Phone Number Input (UPDATED) */}
+                {/* Phone Number Input */}
                 <div className="relative">
                   <input
                     type="tel"
                     name="phone"
                     value={formData.phone}
-                    // Updated onChange to strictly block non-digits and limit length
                     onChange={(e) => {
                         const val = e.target.value;
-                        // Regex: Only digits allowed, max length 11
                         if (/^\d*$/.test(val) && val.length <= 11) {
                             setFormData({ ...formData, phone: val });
                         }
                     }}
-                    minLength={10} // Browser validation: minimum 10 chars
-                    maxLength={11} // Browser validation: maximum 11 chars
-                    pattern="[0-9]{10,11}" // Regex for form validation
+                    minLength={10} 
+                    maxLength={11} 
+                    pattern="[0-9]{10,11}" 
                     title="Please enter a valid 10 digit phone number"
                     placeholder="Phone Number"
                     className="w-full bg-transparent border-b border-gray-300 py-3 text-sm focus:outline-none focus:border-black transition-colors placeholder-gray-800 font-semibold"
@@ -135,7 +178,7 @@ export default function ContactUs() {
                   <label className="absolute -top-3 left-0 text-xs font-bold text-gray-900">Phone Number</label>
                 </div>
 
-                {/* CONDITIONAL INPUT: Appears only when 'Other' is selected */}
+                {/* CONDITIONAL INPUT: Other Interest */}
                 {formData.interest === 'other' && (
                   <div className="relative md:col-span-2 animate-fadeIn"> 
                     <input
@@ -170,18 +213,22 @@ export default function ContactUs() {
               <div className="flex justify-end pt-2">
                 <button
                   type="submit"
-                  className="bg-black text-white pl-8 pr-6 py-3 rounded-sm text-sm font-semibold flex items-center gap-3 hover:bg-gray-800 transition-colors"
+                  disabled={isSubmitting} 
+                  className={`bg-black text-white pl-8 pr-6 py-3 rounded-sm text-sm font-semibold flex items-center gap-3 transition-colors ${
+                    isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-800'
+                  }`}
                 >
-                  Submit 
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  {isSubmitting ? 'Sending...' : 'Submit'} 
+                  {!isSubmitting && (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  )}
                 </button>
               </div>
             </form>
           </div>
 
-          {/* Right: Contact Details (Unchanged) */}
+          {/* Right: Contact Details */}
           <div className="lg:col-span-5 flex flex-col gap-10 lg:pl-16 pt-2">
-            
             {/* Call Us */}
             <div>
               <h3 className="text-sm font-bold mb-3 text-black">Call Us</h3>
@@ -240,4 +287,4 @@ export default function ContactUs() {
       </main>
     </div>
   );
-};
+}
