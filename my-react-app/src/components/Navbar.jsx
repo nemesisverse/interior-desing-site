@@ -20,7 +20,7 @@ export default function Navbar() {
     { name: "Portfolio", link: "/Portfolio" },
     { name: "Blogs", link: "/services" },
     { name: "Career", link: "#contact" },
-    { name: "Contact Us", link: "#contact" }
+    { name: "Contact Us", link: "/contactus" }
     
   ];
 

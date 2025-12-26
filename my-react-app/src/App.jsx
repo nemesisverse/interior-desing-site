@@ -12,6 +12,8 @@ import Portfolio1 from "./components/Portfolio1";
 import PortfolioS1 from "./components/PortfolioS1";
 import Footer2 from "./components/footer2";
 
+import ContactUs from "./components/ContactUs";
+
 export default function App() {
   const router = createBrowserRouter([
         {
@@ -36,7 +38,8 @@ export default function App() {
       element:<><Navbar/><Portfolio1/><PortfolioS1/><Footer2/></>,
     },
     {
-
+      path: "/contactus",
+      element: <><ContactUs/><Footer2/></>,
     }
 
   ]);
