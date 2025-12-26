@@ -99,7 +99,7 @@ export default function ContactUs() {
           <div className="lg:col-span-7">
             <h2 className="text-lg font-bold mb-2 text-black">Send a Message</h2>
             <p className="text-gray-500 text-sm mb-10 leading-relaxed">
-              Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Done
+              Please fill out the form below and our team will get back to you at the earliest.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-10">
@@ -233,11 +233,13 @@ export default function ContactUs() {
             <div>
               <h3 className="text-sm font-bold mb-3 text-black">Call Us</h3>
               <p className="text-gray-500 text-sm mb-3 leading-relaxed">
-                Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Done
+                Please contact us during office hours, between 9:30 a.m. and 6:00 p.m.
+
               </p>
-              <a href="tel:2553251351" className="text-orange-400 font-semibold text-sm flex items-center hover:text-orange-600 transition-colors">
+              <a href="tel:9867672000" className="text-orange-400 font-semibold text-sm flex items-center hover:text-orange-600 transition-colors">
+                
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-3"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                (255) 325-1351
+                (986) 767-2000
               </a>
             </div>
 
@@ -245,44 +247,73 @@ export default function ContactUs() {
             <div>
               <h3 className="text-sm font-bold mb-3 text-black">Visit Us</h3>
               <p className="text-gray-500 text-sm mb-3 leading-relaxed">
-                Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Done
+                Fusion Ufairia Mall, Office No F-139B, Sector 16B, Greater Noida, Ghaziabad, Uttar Pradesh, 201310
               </p>
               <a href="#" className="text-orange-400 font-semibold text-sm flex items-center hover:text-orange-600 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-3"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                1234 Divi St. #1000, San Francisco, CA
+                Elevated Home Interio Fusion Ufairia Mall, 201310
               </a>
             </div>
 
             {/* Live Chat */}
             <div>
               <h3 className="text-sm font-bold mb-3 text-black">Live Chat</h3>
-              <p className="text-gray-500 text-sm mb-3 leading-relaxed">
-                Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Done
-              </p>
-              <button className="text-orange-400 font-semibold text-sm flex items-center hover:text-orange-600 transition-colors bg-transparent border-none p-0 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-3"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                Start Chat
-              </button>
+                <p className="text-gray-500 text-sm mb-3 leading-relaxed">
+                Please contact us during office hours, between 9:30 a.m. and 6:00 p.m.
+                </p>
+              <a 
+                href="https://wa.me/919540777511" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-orange-400 font-semibold text-sm flex items-center hover:text-orange-600 transition-colors bg-transparent border-none p-0 cursor-pointer w-fit"
+              >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-3">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+              Start Chat
+              </a>
             </div>
 
           </div>
         </div>
 
+        
         {/* --- Map Section --- */}
-        <div className="w-full h-[450px] bg-gray-100 rounded-sm overflow-hidden relative grayscale opacity-90 hover:grayscale-0 transition-all duration-500">
-           <img 
-            src="https://maps.googleapis.com/maps/api/staticmap?center=San+Francisco,CA&zoom=13&size=1200x450&scale=2&maptype=roadmap&style=feature:all|saturation:-100|visibility:simplified&key=YOUR_API_KEY_HERE" 
-            alt="Map location"
-            className="w-full h-full object-cover"
-            onError={(e) => {
-                e.target.style.display='none'; 
-                e.target.parentNode.style.backgroundColor='#e5e5e5';
-            }}
-           />
-           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-             <span className="text-gray-400 font-bold text-xl tracking-widest opacity-20">MAP VIEW</span>
-           </div>
-        </div>
+<div className="w-full h-[450px] bg-gray-100 rounded-sm overflow-hidden relative group">
+  
+  {/* 1. The Interactive Map Iframe */}
+  <iframe 
+    src="https://maps.google.com/maps?q=Fusion%20Ufairia%20Mall%2C%20Sector%2016B%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20201310&t=&z=13&ie=UTF8&iwloc=&output=embed"
+    className="w-full h-full border-0 grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+    allowFullScreen=""
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    title="Fusion Ufairia Mall Location"
+  ></iframe>
+
+  {/* 2. Custom "Get Directions" Button Overlay (Optional but Recommended) */}
+  <div className="absolute bottom-6 right-6 z-10">
+    <a 
+      href="https://www.google.com/maps/dir/?api=1&destination=Fusion+Ufairia+Mall,+Sector+16B,+Greater+Noida,+Uttar+Pradesh+201310"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 bg-white text-blue-600 px-4 py-2 rounded shadow-lg hover:shadow-xl hover:bg-blue-50 transition-all font-semibold text-sm"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 7m0 13V7" />
+      </svg>
+      Get Directions
+    </a>
+  </div>
+  
+  {/* Map Label Overlay (Your original design) */}
+  <div className="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:hidden transition-opacity duration-300">
+    <span className="bg-white/80 backdrop-blur-sm px-4 py-2 rounded text-gray-600 font-bold text-lg tracking-widest shadow-sm">
+      VIEW MAP
+    </span>
+  </div>
+
+</div>
 
       </main>
     </div>
