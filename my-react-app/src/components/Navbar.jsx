@@ -18,8 +18,10 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", link: "/" },
     { name: "Portfolio", link: "/Portfolio" },
-    { name: "Quotation", link: "/services" },
-    { name: "Contact Us", link: "#contact" },
+    { name: "Ideas", link: "/services" },
+    { name: "Career", link: "#contact" },
+    { name: "Contact Us", link: "#contact" }
+    
   ];
 
   const controlNavbar = () => {
@@ -30,7 +32,7 @@ export default function Navbar() {
 
     if (isOpen) return;
 
-    const delta = 140;
+    const delta = 70;
 
     if (currentScrollY < innerHeight) {
       setShow(true);
