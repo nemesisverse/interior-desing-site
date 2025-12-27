@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import img1 from "../images/Project1/pro11.png";
+import img1 from "../images/Portfolio/r1.png";
+import img2 from "../images/Portfolio/r2.png";
 
 export default function ScrollSection({ 
   id = "section", 
@@ -140,7 +141,7 @@ export default function ScrollSection({
 
             {/* Image 2 */}
             <div className={`${img2Color} shadow-2xl rounded-xl flex items-center justify-center w-[82%]  h-[87vh] 
-              bg-cover bg-center bg-no-repeat`} style={{ backgroundImage: `url('${img1}')` }}>
+              bg-cover bg-center bg-no-repeat`} style={{ backgroundImage: `url('${img2}')` }}>
                 <span className="text-white text-4xl font-bold">2</span>
             </div>
         </div>
