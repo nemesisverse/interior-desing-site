@@ -1,7 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function Footer2() {
   
+  // State to toggle developer card visibility
+  const [showDevCard, setShowDevCard] = useState(false);
+
   // --- FIX: PREVENT OVERSCROLL BOUNCE ---
   useEffect(() => {
     // This prevents the "rubber banding" effect where the footer lifts off the bottom
@@ -134,8 +137,54 @@ export default function Footer2() {
              </div>
           </div>
         </div>
-        
       </div>
+
+      {/* --- DEVELOPER INFO TRIGGER (SUBTLE) --- */}
+      <div className="mt-16 pt-4 border-t border-gray-800 flex justify-center relative">
+        
+        {/* The Popover Card (Hidden by default) */}
+        {showDevCard && (
+            <div className="absolute bottom-full mb-3 bg-[#1a1a1a] border border-gray-700 p-4 rounded-lg shadow-xl z-50 text-sm w-max text-center backdrop-blur-md bg-opacity-90">
+                <p className="text-gray-400 flex items-center justify-center gap-1.5">
+                    Developed by 
+                    {/* --- YOUR LINKEDIN LINK & LOGO --- */}
+                    <a 
+                      href="https://www.linkedin.com/in/abhinav-pal-567219256/" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-1.5 text-white font-semibold hover:text-[#0077b5] transition-colors duration-300"
+                    >
+                      Abhinav Pal
+                      {/* LinkedIn Logo SVG */}
+                      <svg 
+                        className="w-4 h-4 fill-current transition-colors duration-300 group-hover:fill-[#0077b5]" 
+                        viewBox="0 0 24 24" 
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                      </svg>
+                    </a>
+                </p>
+                <p className="text-gray-500 text-xs mt-1 flex items-center justify-center gap-2">
+                    <span>Co-founder of <span className="text-gray-300">Rojopapel</span></span>
+                    <span className="w-1 h-1 rounded-full bg-gray-600"></span>
+                    <span className="text-gray-300">in BITS Goa with love</span>
+                </p>
+            </div>
+        )}
+
+        {/* The Trigger Button (Subtle Code Icon) */}
+        <button 
+            onClick={() => setShowDevCard(!showDevCard)}
+            className={`p-2 rounded-full transition-all duration-300 outline-none ${showDevCard ? 'bg-white/10 text-gray-200' : 'text-gray-600 hover:text-gray-400 hover:bg-white/5'}`}
+            aria-label="Show Developer Info"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+            </svg>
+        </button>
+      </div>
+
     </footer>
   );
 }

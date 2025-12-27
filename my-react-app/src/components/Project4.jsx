@@ -144,7 +144,7 @@ export default function ScrollSection({
 
             {/* Image 2 */}
             <div className={`${img2Color} shadow-2xl rounded-xl flex items-center justify-center w-[82%]  h-[87vh] 
-              bg-cover bg-center bg-no-repeat`} style={{ backgroundImage: `url('${img1}')` }}>
+              bg-cover bg-center bg-no-repeat`} style={{ backgroundImage: `url('${img2}')` }}>
                 <span className="text-white text-4xl font-bold"></span>
             </div>
         </div>

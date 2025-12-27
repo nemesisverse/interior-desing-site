@@ -1,4 +1,4 @@
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -17,56 +17,68 @@ import ContactUs from "./components/ContactUs";
 import BlogCover from "./components/BlogCover";
 import Blog from "./components/Blog";
 
-
+// Ensure this file exists and contains the code I gave you in Solution 1
+import ScrollToTop from "./components/ScrollToTop"; 
 
 export default function App() {
   const router = createBrowserRouter([
-        {
+    {
       path: "/",
-      element:<>
-      <Navbar/> 
-      <div className="fixed top-0 left-0 w-full h-screen">
-        <Hero />
-      </div>
-      <KnowUs />
-      <Project1 />
-      <Project2 />
-      <Project3 />
-      <Project4 />
-      <Footer />  
-      </>
-      
-    }
-    ,
+      element: (
+        <>
+          <ScrollToTop /> {/* <--- Added here */}
+          <Navbar />
+          <div className="fixed top-0 left-0 w-full h-screen">
+            <Hero />
+          </div>
+          <KnowUs />
+          <Project1 />
+          <Project2 />
+          <Project3 />
+          <Project4 />
+          <Footer />
+        </>
+      ),
+    },
     {
       path: "/Portfolio",
-      element:<><Navbar/><Portfolio1/><PortfolioS1/><Footer2/></>,
+      element: (
+        <>
+          <ScrollToTop /> {/* <--- Added here */}
+          <Navbar />
+          <Portfolio1 />
+          <PortfolioS1 />
+          <Footer2 />
+        </>
+      ),
     },
     {
       path: "/contactus",
-      element: <><Navbar2/><ContactUs/><Footer2/></>,
+      element: (
+        <>
+          <ScrollToTop /> {/* <--- Added here */}
+          <Navbar2 />
+          <ContactUs />
+          <Footer2 />
+        </>
+      ),
     },
     {
       path: "/blog",
-      element: <><Navbar/><BlogCover/><Blog/><Footer2/></>,
-    }
-
+      element: (
+        <>
+          <ScrollToTop /> {/* <--- Added here */}
+          <Navbar />
+          <BlogCover />
+          <Blog />
+          <Footer2 />
+        </>
+      ),
+    },
   ]);
+
   return (
     <div>
-      {/* <Navbar />
-
-      <div className="fixed top-0 left-0 w-full h-screen">
-        <Hero />
-      </div>
-
-      <KnowUs />
-      <Project1 />
-      <Project2 />
-      <Project3 />
-      <Project4 />
-      <Footer /> */}
-
       <RouterProvider router={router} />
     </div>
   );
