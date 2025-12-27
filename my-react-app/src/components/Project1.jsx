@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import img1 from "../images/Project1/pro11.png";
+
 export default function ScrollSection({ 
   id = "section", 
-  bgColor = "bg-green-100", 
+  bgColor = "bg-black", // Changed from "bg-[#4a2c20]" to "bg-black"
   img1Color = "bg-blue-600",
   img2Color = "bg-purple-600",
   title = "Project Gallery"
@@ -105,14 +106,27 @@ export default function ScrollSection({
         ref={stickyRef}
         className={`sticky top-0 z-30 h-screen flex flex-col items-center justify-center ${bgColor} overflow-hidden`}
       >
-        <div className="max-w-4xl text-center px-4 relative z-0">
-          <h2 className="text-3xl font-semibold mb-4">{title}</h2>
-          <p className="text-lg text-gray-700">
-            Scroll down to see the projects rise.
-          </p>
+        
+        {/* --- REPLACED CONTENT: RESIDENTIALS MASK --- */}
+        {/* This div replaces the old "Project Gallery" text. It uses bg-clip-text. */}
+        <div className="relative z-0 w-full h-full flex flex-col justify-center items-center">
+            <h1 
+              className="font-serif font-black text-transparent bg-clip-text bg-cover bg-center text-[11vw] leading-none tracking-tighter uppercase drop-shadow-2xl scale-y-125"
+              style={{ backgroundImage: `url('${img1}')` }}
+            >
+              RESIDENTIALS
+            </h1>
+            
+            {/* Optional Caption mimicking the reference image style */}
+            <div className="absolute bottom-12 left-8 md:left-16 max-w-xs text-white/80 opacity-80 hidden md:block">
+              <p className="text-sm font-light tracking-wide border-l-2 border-white/50 pl-3">
+                The <span className="font-bold text-white">Residential Collection</span> features modern fortifications in the Urban Area.
+              </p>
+            </div>
         </div>
+        {/* ------------------------------------------- */}
 
-        {/* --- IMAGE CONTAINER --- */}
+        {/* --- IMAGE CONTAINER (Untouched) --- */}
         <div 
             ref={imagesContainerRef}
             className=" absolute top-0 left-0 w-full flex flex-col items-center gap-[50vh] flex-auto pointer-events-none z-10 "

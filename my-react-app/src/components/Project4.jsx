@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import img1 from "../images/Project1/pro11.png";
+
 export default function ScrollSection({ 
   id = "section", 
-  bgColor = "bg-green-100", 
+  bgColor = "bg-white", // Changed to Black
   img1Color = "bg-blue-600",
   img2Color = "bg-purple-600",
   title = "Project Gallery"
@@ -21,7 +22,7 @@ export default function ScrollSection({
     let currentHeroHeight = window.innerHeight;
 
     // --- 1. CONFIGURATION ---
-    // Speed: 0.9 = Natural feel
+    // Speed: 0.9 = Natural feel.
     const imgSpeedFactor = 0.9; 
     const lerpFactor = 0.1;
 
@@ -105,11 +106,26 @@ export default function ScrollSection({
         ref={stickyRef}
         className={`sticky top-0 z-30 h-screen flex flex-col items-center justify-center ${bgColor} overflow-hidden`}
       >
-        <div className="max-w-4xl text-center px-4 relative z-0">
-          <h2 className="text-3xl font-semibold mb-4">{title}</h2>
-          <p className="text-lg text-gray-700">
-            Scroll down to see the projects rise.
-          </p>
+        
+        {/* --- REPLACED CONTENT: SPACE PLANNING MASK --- */}
+        <div className="relative z-0 w-full h-full flex flex-col justify-center items-center">
+            {/* Flex-col and leading-[0.85] ensure the two words stack 
+              cleanly without too much gap, resembling a poster design.
+            */}
+            <h1 
+              className="font-serif font-black text-transparent bg-clip-text bg-cover bg-center text-[11vw] leading-[0.85] tracking-tighter uppercase drop-shadow-2xl scale-y-125 flex flex-col items-center text-center"
+              style={{ backgroundImage: `url('${img1}')` }}
+            >
+              <span>SPACE</span>
+              <span>PLANNING</span>
+            </h1>
+            
+            {/* Caption adapted for Dark Background (White Text) */}
+            <div className="absolute bottom-12 left-8 md:left-16 max-w-xs text-white/80 opacity-80 hidden md:block">
+              <p className="text-sm font-light tracking-wide border-l-2 border-white/50 pl-3">
+                The <span className="font-bold text-white">Space Planning</span> collection optimizes layouts for maximum efficiency.
+              </p>
+            </div>
         </div>
 
         {/* --- IMAGE CONTAINER --- */}

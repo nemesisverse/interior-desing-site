@@ -1,77 +1,67 @@
-
 import React, { useEffect, useRef, useState } from "react";
+// Make sure this path is correct for your project structure
+import img1 from "../images/Portfolio/shivi.png";
 
 export default function KnowUs() {
   const stickyRef = useRef(null);
   const wrapperRef = useRef(null);
   const [spacerHeight, setSpacerHeight] = useState(0);
+  
+  // Animation State
+  const [isVisible, setIsVisible] = useState(false);
 
- //useRef value initialization
+  // useRef value initialization
   const currentY = useRef(0);
   const targetY = useRef(0);
 
-  // when true we let the content beneath overlap (appear on top)
-  //const [allowOverlap, setAllowOverlap] = useState(false);
-
   useEffect(() => {
-    // Warn if html/body overflow is hidden (will break scrolling)
     const html = document.documentElement;
     const body = document.body;
-    if(getComputedStyle(html).overflow === "hidden" || getComputedStyle(body).overflow === "hidden") {
+    if (
+      getComputedStyle(html).overflow === "hidden" ||
+      getComputedStyle(body).overflow === "hidden"
+    ) {
       console.warn(
-        "KnowUs component: Detected overflow:hidden on html or body. This will break scrolling behavior."
+        "KnowUs component: Detected overflow:hidden. This will break scrolling."
       );
     }
 
-
     const heroHeightStart = window.innerHeight;
-    let currentHeroHeight = heroHeightStart; //lets say 800 , it will remain 800 throughout the scroll
-    const safeMultiplier = 2.1; // 2.1 if lerpFactor is require to put weightage in scroll multiply with  currentY.current += (targetY.current - currentY.current) 
+    let currentHeroHeight = heroHeightStart;
+    const safeMultiplier = 2.1;
     setSpacerHeight(heroHeightStart * safeMultiplier);
 
-    currentY.current = currentHeroHeight; // start below viewport
-    targetY.current =  currentHeroHeight;
+    currentY.current = currentHeroHeight;
+    targetY.current = currentHeroHeight;
 
-    const lerpFactor = 0.12; // 0.12 official  it slows down the movement , smaller = slower
+    const lerpFactor = 0.12;
     const speedFactor = 0.6;
-
-    //const desiredScrollToTop = 1200; // how many px of scroll should bring overlay to top
-    //const speedFactor = currentHeroHeight / desiredScrollToTop;   
-    // now targetY reaches 0 when scrollY >= desiredScrollToTop
 
     let raf = null;
 
     const tick = () => {
       currentY.current += (targetY.current - currentY.current) * lerpFactor;
-
       if (stickyRef.current) {
-        // translateY expects px; keep it smooth via currentY
-        stickyRef.current.style.transform = `translateY(${Math.round(currentY.current)}px)`;
+        stickyRef.current.style.transform = `translateY(${Math.round(
+          currentY.current
+        )}px)`;
       }
-
       raf = requestAnimationFrame(tick);
     };
 
-    // scroll handler updates targetY and toggles allowOverlap when overlay reached the top
     const onScroll = () => {
       const scrollY = window.scrollY || window.pageYOffset;
-      // I will remove the zero after project 1
-      targetY.current = Math.max(currentHeroHeight - scrollY * speedFactor, 0);
+      const newTarget = Math.max(currentHeroHeight - scrollY * speedFactor, 0);
+      targetY.current = newTarget;
 
-      // If the overlay would be fully at top (targetY === 0), we allow overlap.
-      // Equivalent condition: scrollY * speedFactor >= currentHeroHeight ,,,,,,here its saying has knowUs touched the top , y = 0
-
-      //const shouldAllowOverlap = scrollY * speedFactor >= currentHeroHeight;
-      // Only update state if changed (avoid re-renders)
-      //if (shouldAllowOverlap !== allowOverlap) {
-      //  // use setTimeout zero to avoid React state during scroll event re-entrancy — optional but safe
-      //  setAllowOverlap(shouldAllowOverlap);
-      //}
+      // Animation Trigger: 40% visible
+      if (newTarget < currentHeroHeight * 0.6) {
+        setIsVisible(true);
+      }
     };
 
     const onResize = () => {
       currentHeroHeight = window.innerHeight;
-      // Keep positions sane after resize
       currentY.current = Math.max(currentY.current, currentHeroHeight);
       targetY.current = Math.max(targetY.current, 0);
       setSpacerHeight(currentHeroHeight * safeMultiplier);
@@ -86,44 +76,135 @@ export default function KnowUs() {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
     };
-    // intentionally include allowOverlap in deps? No — we read/set it via closure; setAllowOverlap handles updates.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Inline styles that depend on allowOverlap
   const stickyStyles = {
-    transform: "translateY(100vh)", // initial
+    transform: "translateY(100vh)",
     willChange: "transform",
-    // when allowOverlap is true, make the overlay visually underlayed:
-
-    //active them when something unnecessaru happen
-   //zIndex: allowOverlap ? 0 : 30, // i dont know , if i remove it nothing changes
-   // pointerEvents: allowOverlap ? "none" : "auto", // allow clicks to pass to beneath content
   };
+
+  const baseTransition = "transition-all duration-1000 ease-out";
+  const hiddenUp = "opacity-0 -translate-y-10";
+  const hiddenDown = "opacity-0 translate-y-10";
+  const visible = "opacity-100 translate-y-0 scale-100";
 
   return (
     <>
+      <style>{`
+        @keyframes float {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+          100% { transform: translateY(0px); }
+        }
+        .animate-float {
+          animation: float 4s ease-in-out infinite;
+        }
+      `}</style>
+
       <section ref={wrapperRef} id="knowus-wrapper" className="relative">
         <div
           ref={stickyRef}
           id="knowus"
-          className="sticky top-0 h-screen w-full flex items-center justify-center bg-[#F3EEEA]"
+          className="sticky top-0 h-screen w-full bg-[#FDF8F2] overflow-hidden flex flex-col justify-center"
           style={stickyStyles}
         >
-          <div className="container max-w-6xl mx-auto text-center px-6">
-            <h1 className="text-5xl font-bold text-gray-800 mb-4">Who We Are</h1>
-            <p className="text-lg text-gray-600 max-w-xl mx-auto">
-              This section moves up as you scroll, fully covering the Hero while preserving normal page scroll behavior.
-            </p>
+          {/* --- DESIGN START --- */}
+
+          {/* 1. "HI, MY NAME IS" - Top Left */}
+          <div 
+            className={`absolute top-4 left-4 md:top-12 md:left-12 z-20 ${baseTransition} delay-100 ${isVisible ? visible : hiddenUp}`}
+          >
+            <h2 className="text-[#8B0000] font-bold text-sm md:text-3xl uppercase tracking-tight font-sans">
+              Hi, My Name Is
+            </h2>
           </div>
+
+          {/* 2. BACKGROUND TEXT "NAME" */}
+          <div 
+            className={`absolute top-[8%] md:top-[10%] left-0 w-full text-center z-0 pointer-events-none select-none ${baseTransition} duration-[1500ms] delay-0 ${isVisible ? visible : 'opacity-0 scale-105'}`}
+          >
+            {/* Adjusted font size for mobile (13vw) vs desktop (10vw) to ensure it fits/fills properly */}
+            <h1 className="text-[13vw] md:text-[10vw] leading-[0.8] font-serif text-[#9A0000] uppercase tracking-tighter scale-y-110">
+              Shivangi Agarwal
+            </h1>
+          </div>
+
+          {/* 3. MAIN CONTENT GRID */}
+          <div className="container mx-auto h-full relative z-10 flex flex-col md:flex-row">
+            
+            {/* LEFT COLUMN: IMAGE & Floating Label */}
+            {/* On mobile, this takes 55% height. On Desktop, it takes full height but width 50% */}
+            <div className="w-full h-[55%] md:h-full md:w-1/2 flex flex-col justify-end items-center md:items-start relative">
+              
+              {/* Floating "(designer)" text - Adjusted position for mobile */}
+              <div 
+                className={`absolute top-[20%] right-[5%] md:top-[35%] md:right-[-10%] z-20 ${baseTransition} delay-700 ${isVisible ? visible : hiddenDown}`}
+              >
+                <span className="text-[#8B0000] font-serif italic text-xl md:text-4xl font-light block animate-float">
+                  *(designer)
+                </span>
+              </div>
+
+              {/* The Person Image Container */}
+              {/* Mobile: 90% of the 55% height wrapper. Desktop: 95% of full height. */}
+              <div 
+                className={`relative h-[90%] md:h-[95%] w-full flex justify-center md:justify-end overflow-hidden ${baseTransition} delay-300 ${isVisible ? visible : hiddenDown}`}
+              >
+                 <img
+                  src={img1}
+                  alt="co-founder portrait"
+                  className="h-full object-cover grayscale contrast-110 object-top mask-image-gradient transition-transform duration-700 hover:scale-105"
+                  style={{
+                     maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
+                     WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)'
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN: TEXT BLOCK & BUTTON */}
+            {/* On mobile, this takes the remaining height (auto) and adds padding */}
+            <div className="w-full h-auto md:h-full md:w-1/2 flex flex-col justify-start md:justify-end pb-8 px-6 md:pb-24 md:pl-0 md:pr-12">
+              <div className="md:max-w-lg ml-auto">
+                {/* Paragraph */}
+                <p 
+                  className={`text-[#8B0000] font-serif italic text-sm md:text-2xl leading-relaxed text-center md:text-left mb-6 md:mb-10 ${baseTransition} delay-500 ${isVisible ? visible : hiddenDown}`}
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+                  ipsum suspendisse ultrices gravida.
+                </p>
+
+                {/* WhatsApp Button & Arrow */}
+                <a 
+                  href="https://wa.me/919540777511" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className={`flex items-center justify-center md:justify-start gap-4 md:gap-6 group cursor-pointer no-underline ${baseTransition} delay-700 ${isVisible ? visible : hiddenDown}`}
+                >
+                  <span className="border border-[#8B0000] text-[#8B0000] px-6 py-2 md:px-8 md:py-3 rounded-full uppercase tracking-widest text-xs md:text-sm font-semibold group-hover:bg-[#8B0000] group-hover:text-[#FDF8F2] transition-colors duration-300">
+                    Contact Our Team
+                  </span>
+                  
+                  <svg 
+                    width="40" 
+                    height="20" 
+                    viewBox="0 0 60 20" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="stroke-[#8B0000] w-[40px] md:w-[60px] transform group-hover:translate-x-2 transition-transform duration-300"
+                  >
+                    <path d="M0 10H58M58 10L48 1M58 10L48 19" strokeWidth="1.5"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          {/* --- DESIGN END --- */}
         </div>
 
         <div aria-hidden style={{ height: spacerHeight }} className="w-full" />
       </section>
-
-      {/* Example section BELOW that should scroll *over* the overlay when allowOverlap === true.
-          Important: give this section a higher stacking context (z-index) so it can appear above.
-          Use relative + z-* or a utility class that gives higher z-index (e.g., z-40). */}
     </>
   );
 }

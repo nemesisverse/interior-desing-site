@@ -76,7 +76,7 @@ export default function Footer() {
           {/* Social Icons */}
           <div className="flex items-center gap-5 mt-8">
             <a 
-              href="#" 
+              href="https://www.facebook.com/share/1836hjp7SU/?mibextid=wwXIfr" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="hover:opacity-80 transition-opacity"
@@ -117,7 +117,7 @@ export default function Footer() {
             </a>
 
             <a 
-              href="#" 
+              href="https://youtube.com/@elevatedhomeinterio?si=wHtOhsvXfPATpTi9" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="hover:opacity-80 transition-opacity"

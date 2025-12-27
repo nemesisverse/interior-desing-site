@@ -47,7 +47,7 @@ export default function Footer2() {
           {/* Social Icons */}
           <div className="flex items-center gap-5 mt-8">
             <a 
-              href="#" 
+              href="https://www.facebook.com/share/1836hjp7SU/?mibextid=wwXIfr" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="hover:opacity-80 transition-opacity"
@@ -86,18 +86,9 @@ export default function Footer2() {
                 <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
                </svg>
             </a>
+
             <a 
-              href="#" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="hover:opacity-80 transition-opacity"
-            >
-              <svg fill="currentColor" className="w-6 h-6" viewBox="0 0 24 24">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-            </a>
-            <a 
-              href="#" 
+              href="https://youtube.com/@elevatedhomeinterio?si=wHtOhsvXfPATpTi9" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="hover:opacity-80 transition-opacity"

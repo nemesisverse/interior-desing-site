@@ -83,10 +83,6 @@ export default function ContactUs() {
   return (
     <div className="min-h-screen bg-[#f9f9f9] font-sans text-gray-900 pb-20">
       
-      {/* UPDATED PADDING: 
-        Changed 'py-16' to 'pt-32 pb-16'. 
-        'pt-32' adds 128px of space at the top, ensuring the fixed navbar doesn't cover the title.
-      */}
       <main className="max-w-7xl mx-auto px-6 pt-32 pb-16 lg:px-12">
         
         {/* Page Title */}
@@ -274,46 +270,64 @@ export default function ContactUs() {
               </a>
             </div>
 
+            {/* --- ADDED SECTION: Careers --- */}
+            <div>
+              <h3 className="text-sm font-bold mb-3 text-black">Careers</h3>
+              <p className="text-gray-500 text-sm mb-3 leading-relaxed">
+                We are always looking for creative minds to join our team.
+              </p>
+              <a 
+                href="mailto:careers@elevatedhomeinterio.com" 
+                className="text-orange-400 font-semibold text-sm flex items-center hover:text-orange-600 transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-3">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                careers@elevatedhomeinterio.com
+              </a>
+            </div>
+
           </div>
         </div>
 
         
         {/* --- Map Section --- */}
-<div className="w-full h-[450px] bg-gray-100 rounded-sm overflow-hidden relative group">
-  
-  {/* 1. The Interactive Map Iframe */}
-  <iframe 
-    src="https://maps.google.com/maps?q=Fusion%20Ufairia%20Mall%2C%20Sector%2016B%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20201310&t=&z=13&ie=UTF8&iwloc=&output=embed"
-    className="w-full h-full border-0 grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
-    allowFullScreen=""
-    loading="lazy"
-    referrerPolicy="no-referrer-when-downgrade"
-    title="Fusion Ufairia Mall Location"
-  ></iframe>
+        <div className="w-full h-[450px] bg-gray-100 rounded-sm overflow-hidden relative group">
+          
+          {/* 1. The Interactive Map Iframe */}
+          <iframe 
+            src="https://maps.google.com/maps?q=Fusion%20Ufairia%20Mall%2C%20Sector%2016B%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20201310&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            className="w-full h-full border-0 grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Fusion Ufairia Mall Location"
+          ></iframe>
 
-  {/* 2. Custom "Get Directions" Button Overlay (Optional but Recommended) */}
-  <div className="absolute bottom-6 right-6 z-10">
-    <a 
-      href="https://www.google.com/maps/dir/?api=1&destination=Fusion+Ufairia+Mall,+Sector+16B,+Greater+Noida,+Uttar+Pradesh+201310"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center gap-2 bg-white text-blue-600 px-4 py-2 rounded shadow-lg hover:shadow-xl hover:bg-blue-50 transition-all font-semibold text-sm"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 7m0 13V7" />
-      </svg>
-      Get Directions
-    </a>
-  </div>
-  
-  {/* Map Label Overlay (Your original design) */}
-  <div className="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:hidden transition-opacity duration-300">
-    <span className="bg-white/80 backdrop-blur-sm px-4 py-2 rounded text-gray-600 font-bold text-lg tracking-widest shadow-sm">
-      VIEW MAP
-    </span>
-  </div>
+          {/* 2. Custom "Get Directions" Button Overlay */}
+          <div className="absolute bottom-6 right-6 z-10">
+            <a 
+              href="https://www.google.com/maps/dir/?api=1&destination=Fusion+Ufairia+Mall,+Sector+16B,+Greater+Noida,+Uttar+Pradesh+201310"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-white text-blue-600 px-4 py-2 rounded shadow-lg hover:shadow-xl hover:bg-blue-50 transition-all font-semibold text-sm"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 7m0 13V7" />
+              </svg>
+              Get Directions
+            </a>
+          </div>
+          
+          {/* Map Label Overlay */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none group-hover:hidden transition-opacity duration-300">
+            <span className="bg-white/80 backdrop-blur-sm px-4 py-2 rounded text-gray-600 font-bold text-lg tracking-widest shadow-sm">
+              VIEW MAP
+            </span>
+          </div>
 
-</div>
+        </div>
 
       </main>
     </div>
