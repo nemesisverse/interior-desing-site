@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import logo from "../images/logo.svg";
+// logo import removed
 
 export default function Navbar2() {
   const [show, setShow] = useState(true);
@@ -83,9 +83,12 @@ export default function Navbar2() {
           {/* NAVBAR CONTENT */}
           <div className="container relative z-10 max-w-6xl mx-auto px-4 md:px-8">
             <nav className="flex items-center justify-between font-bold text-white h-14 md:h-16">
-              {/* Logo */}
-              <img src={logo} alt="Logo" className="w-auto h-6 md:h-8" /> 
-              {/* Logo height reduced to fit container */}
+              
+              {/* --- MODIFIED LOGO: SOLID AND BUFF --- */}
+              <div className="text-4xl md:text-5xl font-black tracking-tight font-ubuntu text-white drop-shadow-lg">
+                EHI
+              </div>
+              {/* ------------------------------------- */}
 
               {/* Desktop Menu */}
               <div className="hidden font-ubuntu md:flex md:space-x-10 text-lg">

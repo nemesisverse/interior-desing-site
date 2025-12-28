@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import img1 from "../images/Portfolio/port11.png";
+import img1 from "../images/Portfolio/port11.jpg";
 
 export default function Portfolio1() {
     return (

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import img1 from "../images/Portfolio/blogcover.png";
+import img1 from "../images/Portfolio/blogcover.jpg";
 
 export default function BlogCover() {
     return (

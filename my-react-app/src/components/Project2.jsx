@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import img1 from "../images/Portfolio/c1.png";
-import img2 from "../images/Portfolio/c2.png";
+import img1 from "../images/Portfolio/c11.png";
+import img2 from "../images/Portfolio/c22.png";
 
 export default function ScrollSection({ 
   id = "section", 

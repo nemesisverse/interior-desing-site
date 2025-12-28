@@ -1,8 +1,8 @@
 import React from "react";
-import img1 from "../images/Portfolio/sunlight.png";
-import img2 from "../images/Portfolio/sunbed.png";
-import img3 from "../images/Portfolio/spa.png";
-import img4 from "../images/Portfolio/plantbed.png";
+import img1 from "../images/Portfolio/sunlight.jpg";
+import img2 from "../images/Portfolio/sunbed.jpg";
+import img3 from "../images/Portfolio/spa.jpg";
+import img4 from "../images/Portfolio/plantbed.jpg";
 
 export default function Blog() {
   // Data: Biophilic Elements

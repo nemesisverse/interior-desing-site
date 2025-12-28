@@ -1,7 +1,5 @@
-
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import logo from "../images/logo.svg";
 
 export default function Navbar() {
   const [show, setShow] = useState(true);
@@ -13,8 +11,6 @@ export default function Navbar() {
 
 
   // --- CONFIGURATION ---
-  // Modify your links here. 
-  // Use "/path" for pages or "#id" for scrolling to sections.
   const navLinks = [
     { name: "Home", link: "/" },
     { name: "Portfolio", link: "/Portfolio" },
@@ -93,8 +89,12 @@ export default function Navbar() {
           {/* NAVBAR CONTENT */}
           <div className="container relative z-10 max-w-6xl mx-auto px-4 md:px-8">
             <nav className="flex items-center justify-between font-bold text-white h-20 md:h-24">
-              {/* Logo */}
-              <img src={logo} alt="Logo" className="w-auto h-10 md:h-12" />
+              
+              {/* --- LOGO: SOLID AND BUFF --- */}
+              <div className="text-4xl md:text-5xl font-black tracking-tight font-ubuntu text-white drop-shadow-lg">
+                EHI
+              </div>
+              {/* ---------------------------- */}
 
               {/* Desktop Menu */}
               <div className="hidden font-ubuntu md:flex md:space-x-10 text-lg">
