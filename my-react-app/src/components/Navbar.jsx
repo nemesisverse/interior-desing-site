@@ -10,7 +10,7 @@ export default function Navbar() {
   const scrollUpOrigin = useRef(0);
 
 
-  // --- CONFIGURATION --- did the change againn
+  // --- CONFIGURATION --- did the change againn.....
   const navLinks = [
     { name: "Home", link: "/" },
     { name: "Portfolio", link: "/Portfolio" },
