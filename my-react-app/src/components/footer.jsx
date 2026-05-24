@@ -61,7 +61,7 @@ export default function Footer() {
             <p>India</p>
           </div>
 
-          <p className="mt-4 text-gray-200">+91 9867672000 , +91 9540777511 </p>
+          <p className="mt-4 text-gray-200">+91 9759185480 , +91 9540777511 </p>
           
           <a 
             href="mailto:info@elevatedhomeinterio.com" 
