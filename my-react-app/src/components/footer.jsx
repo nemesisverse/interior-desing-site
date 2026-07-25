@@ -57,7 +57,7 @@ export default function Footer() {
             <p>Fusion Ufairia Mall</p>
             <p>Office No F-139B</p>
             <p>Sector 16B, Greater Noida</p>
-            <p>Ghaziabad, Uttar Pradesh  201310</p>
+            <p>Noida Extension Ek Murti, Uttar Pradesh  201310</p>
             <p>India</p>
           </div>
 

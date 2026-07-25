@@ -17,6 +17,8 @@ import ContactUs from "./components/ContactUs";
 import BlogCover from "./components/BlogCover";
 import Blog from "./components/Blog";
 import Residential from "./components/Residential";
+import Hospitality from "./components/Hospitality";
+import Office from "./components/Office";
 
 // Ensure this file exists and contains the code I gave you in Solution 1
 import ScrollToTop from "./components/ScrollToTop"; 
@@ -88,6 +90,31 @@ export default function App() {
         </>
       ),
     },
+
+    {
+      path: "/hospitality",
+      element: (
+        <>
+          <ScrollToTop />
+          <Navbar2/>
+          <Hospitality/>
+         
+        </>
+      ),
+    },
+
+    {
+      path: "/office",
+      element: (
+        <>
+          <ScrollToTop />
+          <Navbar2/>
+          <Office/>
+         
+        </>
+      ),
+    },
+
 
   ]);
 

@@ -42,7 +42,8 @@ export default function ContactUs() {
 
     try {
       // 2. Send POST request to your backend
-      const response = await fetch('http://127.0.0.1:5001/api/contact', {
+      const apiBase = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5001';
+      const response = await fetch(`${apiBase}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
